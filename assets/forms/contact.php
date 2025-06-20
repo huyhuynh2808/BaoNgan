@@ -14,7 +14,7 @@ require __DIR__ . '/../vendor/PHPMailer/PHPMailer.php';
 require __DIR__ . '/../vendor/PHPMailer/SMTP.php';
 
 // Cấu hình email
-$receiving_email_address = 'huyhuynh28082002@gmail.com'; // Email nhận thông báo
+$receiving_email_address = 'congty.baongan2025@gmail.com'; // Email nhận thông báo
 
 // Kiểm tra và xử lý dữ liệu form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -42,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'huyhuynh28082002@gmail.com'; // Email Gmail của bạn
-        $mail->Password = 'tcor oetu thjk dari'; // Mật khẩu ứng dụng Gmail
+        $mail->Username = 'congty.baongan2025@gmail.com'; // Email Gmail của bạn
+        $mail->Password = 'high gcuf qcrg ynvf'; // Mật khẩu ứng dụng Gmail
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->CharSet = 'UTF-8';

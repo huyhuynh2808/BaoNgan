@@ -671,7 +671,11 @@ h6 {
 }
 
 .footer .footer-contact p {
-  margin-bottom: 5px;
+  margin-bottom: 12px;
+}
+
+.footer .footer-contact p:last-child {
+  margin-bottom: 0;
 }
 
 .footer .copyright {
@@ -1058,6 +1062,11 @@ section,
   position: absolute;
   left: calc(50% - 47px);
   top: calc(50% - 47px);
+}
+
+.about-section ul {
+  font-size: 14px;
+  margin-bottom: 16px;
 }
 
 /*--------------------------------------------------------------
@@ -1827,4 +1836,10 @@ section,
 .sitename {
   text-transform: uppercase;
   font-weight: 700;
+}
+
+.footer-logo {
+  max-height: 40px;
+  height: 40px;
+  width: auto;
 }
