@@ -75,6 +75,52 @@
       }
     </script>
   </head>
+  <style>
+    /* Làm header nằm đè trên banner */
+    #header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    /* Khi cuộn xuống, header sẽ trở thành fixed và có background */
+    body.scrolled #header {
+      position: fixed;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      color: #333;
+    }
+
+    /* Đảm bảo navigation menu có màu chữ phù hợp */
+    #header .navmenu a {
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    body.scrolled #header .navmenu a {
+      color: #333;
+    }
+
+    /* Logo giữ nguyên màu gốc */
+    #header .logo img {
+      transition: all 0.3s ease;
+    }
+
+    /* Thêm shadow cho logo để dễ nhìn trên banner */
+    #header .logo img {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    body.scrolled #header .logo img {
+      filter: none;
+    }
+  </style>
 
   <body class="index-page">
     <header id="header" class="header d-flex align-items-center sticky-top">
@@ -118,7 +164,7 @@
             <div class="swiper-slide">
               <a href="electricity-water.html" class="service-slide">
                 <img
-                  src="assets/img/services/coffee.png"
+                  src="assets/img/services/electrical.png"
                   alt="Bảo Trì Điện Nước"
                   class="service-image"
                 />
@@ -127,7 +173,7 @@
             <div class="swiper-slide">
               <a href="construction.html" class="service-slide">
                 <img
-                  src="assets/img/services/coffee.png"
+                  src="assets/img/services/material.png"
                   alt="Vật Liệu Xây Dựng"
                   class="service-image"
                 />
