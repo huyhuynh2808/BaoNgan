@@ -12,11 +12,20 @@
       name="keywords"
       content="Tiến Can, Trang chủ, giới thiệu, cà phê, điện nước, xây dựng"
     />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="author"
+      content="CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ KỸ THUẬT BẢO NGÂN"
+    />
+    <meta
+      name="copyright"
+      content="CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ KỸ THUẬT BẢO NGÂN"
+    />
 
     <link
       rel="icon"
       type="image/png"
-      href="assets/img/logo/z6719011418746_da03dcf03533564d5e982a4bd1df01d4.jpg"
+      href="assets/img/logo/z6719011418746_da03dcf03533564d5e982a4bd1df01d4.png"
     />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
@@ -49,17 +58,17 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ KỸ THUẬT BẢO NGÂN",
-        "url": "http://127.0.0.1/tiencan",
+        "url": "https://kythuatbaongan.com.vn",
         "logo": "assets/img/logo/z6719011418746_da03dcf03533564d5e982a4bd1df01d4.jpg",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "B1.11.03 Chung cư Green Town Bình Tân",
+          "streetAddress": "B1.11.03 Chung cư Green Town Bình Tân, TP.Hồ Chí Minh",
           "addressLocality": "Thành phố Hồ Chí Minh",
           "addressCountry": "VN"
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+84337588436",
+          "telephone": "+84337588436, +84974603236  ",
           "contactType": "customer service",
           "email": "congty.baongan2025@gmail.com"
         }
@@ -74,7 +83,7 @@
       >
         <a href="index.html" class="logo d-flex align-items-center me-auto">
           <img
-            src="assets/img/logo/z6719011418746_da03dcf03533564d5e982a4bd1df01d4.jpg"
+            src="assets/img/logo/z6719011418746_da03dcf03533564d5e982a4bd1df01d4-removebg-preview.png"
             alt="Tiến Can Logo"
           />
         </a>
@@ -92,15 +101,46 @@
         </nav>
       </div>
     </header>
-    <div class="breadcrumbs">
-      <div class="container">
-        <ol>
-          <li><a href="index.html">Trang chủ</a></li>
-        </ol>
-      </div>
-    </div>
 
     <main class="main">
+      <section class="services-banner">
+        <div class="services-carousel">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="coffee.html" class="service-slide">
+                <img
+                  src="assets/img/services/coffee.png"
+                  alt="Cà Phê Rang Xay"
+                  class="service-image"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="electricity-water.html" class="service-slide">
+                <img
+                  src="assets/img/services/coffee.png"
+                  alt="Bảo Trì Điện Nước"
+                  class="service-image"
+                />
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="construction.html" class="service-slide">
+                <img
+                  src="assets/img/services/coffee.png"
+                  alt="Vật Liệu Xây Dựng"
+                  class="service-image"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- Navigation arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <!-- Pagination dots -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
       <section id="hero" class="hero section">
         <div class="container">
           <div class="row gy-4">
@@ -109,13 +149,13 @@
               data-aos="fade-up"
             >
               <h1>
-                Chào mừng đến với Công TTy TNHH MTV Thương Mại Dịch Vụ Kỹ Thuật
+                Chào mừng đến với Công Ty TNHH MTV Thương Mại Dịch Vụ Kỹ Thuật
                 Bảo Ngân
               </h1>
               <p>
                 Chúng tôi cung cấp các giải pháp đa dạng trong lĩnh vực cà phê,
-                điện nước và xây dựng, cam kết mang lại chất lượng và sự hài
-                lòng cho khách hàng.
+                bảo trì điện nước và cung cấp vật liệu xây dựng, cam kết mang
+                lại chất lượng và sự hài lòng cho khách hàng.
               </p>
               <div class="d-flex">
                 <a href="about.html" class="btn-get-started">Bắt Đầu</a>
@@ -327,5 +367,29 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
     <script src="assets/js/main.js"></script>
+
+    <script>
+      // Initialize Services Carousel
+      const servicesCarousel = new Swiper(".services-carousel", {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        speed: 1000,
+      });
+    </script>
   </body>
 </html>

@@ -1,16 +1,3 @@
-/**
-* Template Name: eNno
-* Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -232,7 +219,7 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Global Header
+# Header
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
@@ -240,6 +227,10 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+}
+
+.scrolled .header {
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo {
@@ -289,10 +280,6 @@ h6 {
   .header .navmenu {
     order: 3;
   }
-}
-
-.scrolled .header {
-  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
 /*--------------------------------------------------------------
@@ -1839,7 +1826,146 @@ section,
 }
 
 .footer-logo {
-  max-height: 40px;
-  height: 40px;
-  width: auto;
+  max-width: 200px;
+}
+
+/* Services Banner */
+.services-banner {
+  width: 100%;
+  position: relative;
+  /* Aspect ratio set to 16:4.5 */
+  aspect-ratio: 16 / 4.5;
+  background-color: #ffffff; /* White background for any letterboxing */
+  overflow: hidden;
+}
+
+.services-carousel,
+.services-carousel .swiper-wrapper,
+.services-carousel .swiper-slide {
+  height: 100%;
+  width: 100%;
+}
+
+.services-carousel .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-image {
+  /* Using cover will make the image fill the container, cropping it if necessary */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Swiper Navigation */
+.services-carousel .swiper-button-next,
+.services-carousel .swiper-button-prev {
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.services-carousel .swiper-button-next:hover,
+.services-carousel .swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.services-carousel .swiper-button-next::after,
+.services-carousel .swiper-button-prev::after {
+  font-size: 20px;
+}
+
+/* Swiper Pagination */
+.services-carousel .swiper-pagination {
+  bottom: 15px; /* Adjust position */
+}
+
+.services-carousel .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+}
+
+.services-carousel .swiper-pagination-bullet-active {
+  background: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-banner {
+    height: 30vh;
+  }
+  .service-overlay h3 {
+    font-size: 2rem;
+  }
+
+  .service-overlay p {
+    font-size: 1rem;
+  }
+
+  .services-carousel .swiper-button-next,
+  .services-carousel .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+
+  .services-carousel .swiper-button-next::after,
+  .services-carousel .swiper-button-prev::after {
+    font-size: 16px;
+  }
+}
+
+/* Coffee page image styling */
+.coffee .position-relative img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .coffee .position-relative img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Coffee page hero banner styling */
+.coffee-page .hero {
+  width: 100%;
+  min-height: 60vh;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  padding: 60px 0;
+}
+
+.coffee-page .hero .hero-img img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .coffee-page .hero {
+    min-height: 50vh;
+    padding: 40px 0;
+  }
+
+  .coffee-page .hero .hero-img img {
+    max-width: 100%;
+    width: 100%;
+  }
 }
