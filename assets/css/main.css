@@ -1834,7 +1834,7 @@ section,
   width: 100%;
   position: relative;
   /* Aspect ratio set to 16:4.5 */
-  aspect-ratio: 16 / 4.5;
+  aspect-ratio: 16 / 6;
   background-color: #ffffff; /* White background for any letterboxing */
   overflow: hidden;
 }
