@@ -1900,7 +1900,7 @@ section,
 /* Responsive */
 @media (max-width: 768px) {
   .services-banner {
-    height: 30vh;
+    height: 45vh;
   }
   .service-overlay h3 {
     font-size: 2rem;
