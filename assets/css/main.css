@@ -519,6 +519,14 @@ h6 {
   }
 }
 
+/* Fix mobile nav toggle khi header fixed */
+body.scrolled .mobile-nav-toggle {
+  z-index: 10000;
+}
+body.scrolled .navmenu {
+  z-index: 9999;
+}
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
