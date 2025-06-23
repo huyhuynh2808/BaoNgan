@@ -1835,7 +1835,7 @@ section,
   width: 100%;
   position: relative;
   /* Aspect ratio set to 16:4.5 */
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 16 / 4;
   background-color: #ffffff; /* White background for any letterboxing */
   overflow: hidden;
 }
@@ -1980,6 +1980,147 @@ section,
 }
 .mobile-nav-active .navmenu {
   z-index: 10000 !important;
+}
+
+/* Nút liên hệ nổi: luôn ở góc phải bên dưới, xếp dọc */
+.contact-float {
+  position: fixed;
+  right: 24px;
+  bottom: 64px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+.contact-float-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.18s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.18s;
+}
+.contact-float-btn img {
+  width: 30px;
+  height: 30px;
+}
+.contact-float-btn:hover {
+  transform: scale(1.13) translateY(-2px);
+  box-shadow: 0 6px 24px 0 rgba(0, 174, 255, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+.contact-float-btn.messenger:hover {
+  box-shadow: 0 6px 24px 0 rgba(0, 132, 255, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.contact-float-btn.phone:hover {
+  box-shadow: 0 6px 24px 0 rgba(0, 106, 255, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+}
+@media (max-width: 600px) {
+  .contact-float {
+    right: 12px;
+    bottom: 16px;
+    gap: 10px;
+  }
+  .contact-float-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .contact-float-btn img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Hiệu ứng pulse cho từng icon */
+.contact-float-btn::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.6;
+  animation: contact-float-pulse 1.8s infinite;
+}
+
+.contact-float-btn.messenger::before {
+  background: rgba(0, 132, 255, 0.18);
+}
+.contact-float-btn.phone::before {
+  background: rgba(0, 106, 255, 0.18);
+}
+
+@keyframes contact-float-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+.contact-float-btn:hover {
+  transform: scale(1.18) translateY(-4px);
+  box-shadow: 0 8px 32px 0 rgba(0, 174, 255, 0.22),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+.contact-float-btn.messenger:hover {
+  box-shadow: 0 8px 32px 0 rgba(0, 132, 255, 0.32),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.contact-float-btn.phone:hover {
+  box-shadow: 0 8px 32px 0 rgba(0, 106, 255, 0.32),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.contact-float-btn img {
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  position: relative;
+}
+/* Làm header nằm đè trên banner */
+.contact-float-btn.zalo::before {
+  background: rgba(0, 143, 247, 0.18);
+}
+.contact-float-btn.facebook::before {
+  background: rgba(24, 119, 242, 0.18);
+}
+.contact-float-btn.phone::before {
+  background: rgba(0, 174, 255, 0.18);
+}
+.contact-float-btn::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.6;
+  animation: contact-float-pulse 1.8s infinite;
+}
+.contact-float-btn {
+  position: relative !important;
 }
 
 /*  */
