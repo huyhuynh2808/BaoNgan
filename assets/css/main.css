@@ -1982,15 +1982,4 @@ section,
   z-index: 10000 !important;
 }
 
-/* Đảm bảo overlay không che mất nút đóng menu mobile và menu */
-.mobile-nav-active .navmenu {
-  pointer-events: auto !important;
-}
-.mobile-nav-toggle {
-  pointer-events: auto !important;
-}
-body.scrolled .header {
-  z-index: 1 !important;
-}
-
 /*  */

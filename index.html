@@ -77,28 +77,6 @@
   </head>
   <style>
     /* Làm header nằm đè trên banner */
-    #header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0);
-    }
-    /* Khi cuộn xuống, header sẽ trở thành fixed và có background */
-    body.scrolled #header {
-      position: fixed;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-      color: #333;
-    }
-    .mobile-nav-active .navmenu {
-      pointer-events: auto !important;
-    }
-    .mobile-nav-toggle {
-      pointer-events: auto !important;
-    }
   </style>
 
   <body class="index-page">
