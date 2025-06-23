@@ -2025,7 +2025,7 @@ section,
 @media (max-width: 600px) {
   .contact-float {
     right: 12px;
-    bottom: 30px;
+    bottom: 80px;
     gap: 10px;
   }
   .contact-float-btn {
