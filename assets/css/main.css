@@ -2140,3 +2140,131 @@ section,
 }
 
 /*  */
+
+.product-img-hover {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 7/5;
+  background: #f5f5f5;
+}
+.product-img-hover img.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+.product-img-hover .quick-view-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%; /* Bắt đầu ở giữa */
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.4, 2, 0.6, 1),
+    top 0.3s cubic-bezier(0.4, 2, 0.6, 1);
+  z-index: 2;
+  padding: 0;
+}
+.product-img-hover:hover .quick-view-btn,
+.product-img-hover:focus-within .quick-view-btn {
+  opacity: 1;
+  top: 68%; /* Trượt xuống dưới khi hover */
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.quick-view {
+  width: 24px;
+  height: 24px;
+  color: #222;
+}
+.card-detail {
+  text-align: left;
+}
+.card-detail .card-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.card-detail .card-price {
+  font-weight: bold;
+  color: #222;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Quick View Modal Custom */
+#quickViewModal .modal-content {
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+  border: none;
+  padding: 0;
+}
+#quickViewModal .modal-body {
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+#quickViewModal .btn-close {
+  font-size: 1.5rem;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+}
+#quickViewModal .product-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+#quickViewModal .product-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+#quickViewModal .product-desc {
+  color: #444;
+  margin-bottom: 1.2rem;
+}
+#quickViewModal .add-to-cart-btn {
+  background: #222;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.7rem 2.5rem;
+  border-radius: 6px;
+  border: none;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+#quickViewModal .add-to-cart-btn:hover {
+  background: #e74c3c;
+}
+#quickViewModal .modal-dialog {
+  max-width: 600px;
+}
+#quickViewModal .img-fluid {
+  border-radius: 10px;
+}
+.modal-backdrop.show {
+  opacity: 0.7 !important;
+}
+
+.quickview-img-large {
+  max-height: 340px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .quickview-img-large {
+    max-height: 200px;
+  }
+}
