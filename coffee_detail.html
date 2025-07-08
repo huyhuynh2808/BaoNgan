@@ -71,31 +71,41 @@
       <div class="container">
         <ol>
           <li><a href="index.html">Trang chủ</a></li>
-          <li>Cà Phê Rang Xay</li>
+          <li><a href="coffee.html">Cà Phê Rang Xay</a></li>
+          <li>Chi Tiết Sản Phẩm</li>
         </ol>
       </div>
     </div>
 
     <main class="main">
-      <section id="coffee" class="product-store about section coffee">
-        <div class="container">
-          <div
-            class="display-header d-flex align-items-center justify-content-between"
-          >
-            <h2 class="section-title text-uppercase">Sản Phẩm Nổi Bật</h2>
+      <section class="container py-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+            <img
+              id="product-image"
+              src=""
+              alt=""
+              class="img-fluid rounded shadow"
+              style="max-height: 400px; object-fit: contain; background: #fff"
+            />
           </div>
-          <div class="product-content padding-small">
-            <div
-              class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4"
-              id="coffee-products-list"
-            >
-              <!-- Sản phẩm sẽ được JS render vào đây -->
+          <div class="col-lg-6">
+            <h1 id="product-name" class="display-5 fw-bold mb-3"></h1>
+            <div class="mb-3">
+              <span id="product-price" class="fs-3 fw-bold text-success"></span>
             </div>
+            <div class="mb-4">
+              <h5 class="fw-bold mb-2">Mô tả sản phẩm</h5>
+              <p id="product-description" class="lead"></p>
+            </div>
+            <!-- Nếu muốn thêm nút mua hàng, liên hệ, v.v. thì thêm ở đây -->
+            <a href="contact.html" class="btn-get-started">
+              <i class="bi bi-telephone"></i> Liên hệ
+            </a>
           </div>
         </div>
       </section>
     </main>
-
     <footer id="footer" class="footer">
       <div class="container footer-top">
         <div class="row gy-4">
@@ -179,6 +189,7 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/coffee_detail.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Xử lý sự kiện click cho menu
@@ -249,6 +260,5 @@
         </div>
       </div>
     </div>
-    <script src="assets/js/coffee.js"></script>
   </body>
 </html>
