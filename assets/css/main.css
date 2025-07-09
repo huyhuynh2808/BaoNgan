@@ -1834,8 +1834,8 @@ section,
 .services-banner {
   width: 100%;
   position: relative;
-  /* Aspect ratio set to 16:4.5 */
-  aspect-ratio: 16 / 6;
+  /* Aspect ratio set to 8:3 for 1920x720 images */
+  aspect-ratio: 8 / 3;
   background-color: #ffffff; /* White background for any letterboxing */
   overflow: hidden;
 }
@@ -1855,7 +1855,7 @@ section,
 
 .service-image {
   /* Using cover will make the image fill the container, cropping it if necessary */
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
 }
@@ -1900,7 +1900,7 @@ section,
 /* Responsive */
 @media (max-width: 768px) {
   .services-banner {
-    height: 45vh;
+    /* height: 45vh; */
   }
   .service-overlay h3 {
     font-size: 2rem;
@@ -2304,26 +2304,4 @@ section,
     transparent 15%
   ) !important;
   color: var(--contrast-color) !important;
-}
-
-@media (min-width: 769px) {
-  .services-banner {
-    aspect-ratio: 16 / 6;
-    width: 100%;
-    height: auto; /* Không đặt height cứng */
-    min-height: 1px; /* Đảm bảo có chiều cao */
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .services-carousel {
-    height: 100%;
-  }
-  .service-image.desktop-img {
-    max-height: 100%;
-    width: auto;
-    object-fit: contain;
-  }
 }
