@@ -248,3 +248,64 @@ footer i {
 footer a {
   color: #3c97bf;
 }
+
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+    height: auto;
+    min-height: 100vh;
+  }
+  .container {
+    width: 100vw;
+    min-width: 0;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+  .form-container,
+  .sign-in-container,
+  .sign-up-container,
+  .overlay-container,
+  .overlay-panel {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    box-shadow: none;
+    padding: 0 10px;
+    transform: none !important;
+    transition: none;
+  }
+  .overlay {
+    display: none;
+  }
+  form {
+    padding: 0 10px;
+    min-width: 0;
+  }
+  .social-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+  button {
+    width: 100%;
+    padding: 12px 0;
+  }
+  input {
+    font-size: 16px;
+  }
+  .overlay-panel {
+    padding: 0 10px;
+  }
+  .overlay-left,
+  .overlay-right {
+    transform: none !important;
+  }
+  footer {
+    position: static;
+    width: 100%;
+    font-size: 12px;
+  }
+}
