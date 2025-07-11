@@ -6,9 +6,12 @@
     <title>CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ KỸ THUẬT BẢO NGÂN</title>
     <meta
       name="description"
-      content="Chuyên cung cấp dịch vụ cà phê rang xay tại TP.HCM."
+      content="CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ KỸ THUẬT BẢO NGÂN chuyên cung cấp cà phê rang xay chất lượng cao tại TP.HCM. Sản phẩm nguyên chất, dịch vụ uy tín, giao hàng nhanh chóng, giá cạnh tranh. Liên hệ ngay để nhận tư vấn tốt nhất!"
     />
-    <meta name="keywords" content="Tiến Can, Trang chủ, giới thiệu, cà phê" />
+    <meta
+      name="keywords"
+      content="Trang chủ, Giới thiệu, Cà phê rang xay, Liên hệ"
+    />
     <meta name="robots" content="index, follow" />
     <meta
       name="author"
@@ -55,20 +58,32 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ KỸ THUẬT BẢO NGÂN",
-        "url": "https://kythuatbaongan.com.vn",
-        "logo": "assets/img/logo/z6719011418746_da03dcf03533564d5e982a4bd1df01d4.jpg",
+        "url": "https://congtybaongan.com.vn",
+        "logo": "https://congtybaongan.com.vn/assets/img/logo/z6719011418746_da03dcf03533564d5e982a4bd1df01d4-removebg-preview.png",
+        "description": "Chuyên cung cấp cà phê rang xay chất lượng cao tại TP.HCM. Sản phẩm nguyên chất, dịch vụ uy tín, giao hàng nhanh chóng.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "B1.11.03 Chung cư Green Town Bình Tân, TP.Hồ Chí Minh",
           "addressLocality": "Thành phố Hồ Chí Minh",
           "addressCountry": "VN"
         },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+84337588436, +84974603236  ",
-          "contactType": "customer service",
-          "email": "congty.baongan2025@gmail.com"
-        }
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+84337588436",
+            "contactType": "customer service",
+            "email": "congty.baongan2025@gmail.com"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+84974603236",
+            "contactType": "customer service"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/tien.can.688455",
+          "https://zalo.me/0337588436"
+        ]
       }
     </script>
   </head>
@@ -359,7 +374,7 @@
       >
         <img src="assets/img/icon/facebook-icon.webp" alt="Messenger" />
       </a>
-      <a href="tel:0974.603.236" class="contact-float-btn phone">
+      <a href="tel:0337.588.436" class="contact-float-btn phone">
         <img src="assets/img/icon/phone-icon.png" alt="Phone" />
       </a>
     </div>
@@ -401,86 +416,5 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("assets/forms/get_featured_products.php")
-          .then((res) => res.json())
-          .then((products) => {
-            const container = document.getElementById("featured-products-list");
-            container.innerHTML = products
-              .map(
-                (prod) => `
-        <div class="col mb-4">
-          <div class="product-card position-relative">
-            <div class="card-img product-img-hover position-relative">
-              <img
-                src="assets/img/products/${prod.image}"
-                alt="${prod.name}"
-                class="product-image img-fluid"
-              />
-              <a
-                href="coffee_detail.html?id=${
-                  prod.id
-                }&name=${encodeURIComponent(prod.name)}"
-                class="btn btn-light quick-view-btn"
-                aria-label="Xem nhanh"
-              >
-                <svg class="quick-view" width="24" height="24">
-                  <use xlink:href="#quick-view"></use>
-                </svg>
-              </a>
-            </div>
-            <div class="card-detail d-flex flex-column align-items-start mt-3">
-              <h3 class="card-title fs-6 fw-bold m-0">${prod.name}</h3>
-              <span class="card-price fw-bold">${prod.price}</span>
-            </div>
-          </div>
-        </div>
-      `
-              )
-              .join("");
-          });
-      });
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("assets/forms/get_featured_products.php")
-          .then((res) => res.json())
-          .then((products) => {
-            const container = document.getElementById("featured-products-list");
-            container.innerHTML = products
-              .map(
-                (prod) => `
-  <div class="col mb-4">
-    <div class="product-card position-relative">
-      <div class="card-img product-img-hover position-relative">
-        <img
-          src="assets/img/products/${prod.image}"
-          alt="${prod.name}"
-          class="product-image img-fluid"
-        />
-        <a
-          href="coffee_detail.html?id=${prod.id}&name=${encodeURIComponent(
-                  prod.name
-                )}"
-          class="btn btn-light quick-view-btn"
-          aria-label="Xem nhanh"
-        >
-          <svg class="quick-view" width="24" height="24">
-            <use xlink:href="#quick-view"></use>
-          </svg>
-        </a>
-      </div>
-      <div class="card-detail d-flex flex-column align-items-start mt-3">
-        <h3 class="card-title fs-6 fw-bold m-0">${prod.name}</h3>
-        <span class="card-price fw-bold">${prod.price}</span>
-      </div>
-    </div>
-  </div>
-`
-              )
-              .join("");
-          });
-      });
-    </script>
   </body>
 </html>
