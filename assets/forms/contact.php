@@ -1,20 +1,62 @@
 <?php
+// Bật hiển thị lỗi để debug
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Cho phép CORS và POST
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=utf-8');
 
+// Kiểm tra PHP extensions cần thiết
+$required_extensions = ['openssl', 'mbstring', 'curl'];
+$missing_extensions = [];
+foreach ($required_extensions as $ext) {
+    if (!extension_loaded($ext)) {
+        $missing_extensions[] = $ext;
+    }
+}
+
+if (!empty($missing_extensions)) {
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Server thiếu các extension cần thiết: ' . implode(', ', $missing_extensions)
+    ]);
+    exit;
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Đường dẫn chính xác đến thư viện PHPMailer
-require __DIR__ . '/../vendor/PHPMailer/Exception.php';
-require __DIR__ . '/../vendor/PHPMailer/PHPMailer.php';
-require __DIR__ . '/../vendor/PHPMailer/SMTP.php';
+try {
+    // Kiểm tra và load PHPMailer files
+    $phpmailer_path = __DIR__ . '/../vendor/PHPMailer/';
+    
+    if (!file_exists($phpmailer_path . 'Exception.php')) {
+        throw new Exception('PHPMailer Exception.php not found');
+    }
+    if (!file_exists($phpmailer_path . 'PHPMailer.php')) {
+        throw new Exception('PHPMailer PHPMailer.php not found');
+    }
+    if (!file_exists($phpmailer_path . 'SMTP.php')) {
+        throw new Exception('PHPMailer SMTP.php not found');
+    }
+    
+    require $phpmailer_path . 'Exception.php';
+    require $phpmailer_path . 'PHPMailer.php';
+    require $phpmailer_path . 'SMTP.php';
+    
+} catch (Exception $e) {
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Không thể load PHPMailer: ' . $e->getMessage()
+    ]);
+    exit;
+}
 
 // Cấu hình email
-$receiving_email_address = 'congty.baongan2025@gmail.com'; // Email nhận thông báo
+$receiving_email_address = 'congty.baongan2025@gmail.com';
 
 // Kiểm tra và xử lý dữ liệu form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -42,11 +84,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'congty.baongan2025@gmail.com'; // Email Gmail của bạn
-        $mail->Password = 'high gcuf qcrg ynvf'; // Mật khẩu ứng dụng Gmail
+        $mail->Username = 'congty.baongan2025@gmail.com';
+        $mail->Password = 'high gcuf qcrg ynvf';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->CharSet = 'UTF-8';
+        
+        // Tăng timeout để tránh lỗi kết nối
+        $mail->Timeout = 30;
+        $mail->SMTPKeepAlive = true;
 
         // Bật debug mode trong môi trường development
         // $mail->SMTPDebug = 2;
@@ -80,11 +126,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $mail->send();
         echo json_encode(['status' => 'success', 'message' => 'Tin nhắn của bạn đã được gửi thành công!']);
+        
     } catch (Exception $e) {
         error_log("PHPMailer Error: " . $e->getMessage());
+        
+        // Kiểm tra loại lỗi để đưa ra thông báo phù hợp
+        $error_message = 'Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau.';
+        
+        if (strpos($e->getMessage(), 'SMTP connect() failed') !== false) {
+            $error_message = 'Không thể kết nối đến máy chủ email. Vui lòng liên hệ admin.';
+        } elseif (strpos($e->getMessage(), 'authentication') !== false) {
+            $error_message = 'Lỗi xác thực email. Vui lòng liên hệ admin.';
+        } elseif (strpos($e->getMessage(), 'timeout') !== false) {
+            $error_message = 'Kết nối bị timeout. Vui lòng thử lại sau.';
+        }
+        
         echo json_encode([
             'status' => 'error',
-            'message' => 'Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau.',
+            'message' => $error_message,
             'debug' => $e->getMessage() // Chỉ hiển thị trong môi trường development
         ]);
     }
